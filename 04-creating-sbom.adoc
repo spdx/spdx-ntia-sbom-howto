@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: CC-BY-4.0
+
+== 4. Creating an NTIA Minimum Elements SPDX SBOM
+
+creating text goes here
+
+=== 4.1. Manual creation via text file
+
+manual creation text goes here
+
+=== 4.2. Manual creation via SwiftBOM
+
+swiftbom text goes here
+
+=== 4.3. Automated creation using tooling
+
+spdx-npmjs text goes here
+

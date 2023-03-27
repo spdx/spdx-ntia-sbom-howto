@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: CC-BY-4.0
+
+== 1. Introduction
+
+=== 1.1. Background
+
+The past several years have demonstrated the ever-growing need for software distributors to make available Software Bills of Materials (SBOMs).
+https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/[Executive Order 14028 on Improving the Nation's Cybersecurity], issued on May 12, 2021, drove home the importance of SBOMs in protecting the software supply chain.
+
+Pursuant to the Executive Order, the https://www.ntia.doc.gov/[National Telecommunications and Information Administration (NTIA)] released the https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf["Minimum Elements" for an SBOM].
+These are the data fields which, together with "automation support" and "practices and processes," the NTIA has designated as being the
+
+[quote,NTIA Minimum Elements p. 3]
+minimum elements that will enable basic use cases, such as management of vulnerabilities, software inventory, and licenses.
+
+The NTIA Minimum Elements envision that the data contained in SBOM data fields should be expressed in "predictable implementation and data formats" (p. 10) in order to enable support for automation.
+
+https://spdx.dev[SPDX], the Software Package Data Exchange, is a standardized format for expressing SBOM data.
+It has been developed transparently over the past 10+ years in an open source, multi-stakeholder community and is recognized as an international open standard (https://www.iso.org/standard/81870.html[ISO/IEC 5962:2021]; also available at https://standards.iso.org/ittf/PubliclyAvailableStandards/index.html and https://spdx.dev/specifications/).
+The SPDX specification defines the structure and format of an SPDX Document, including the particular fields and data values to enable interchange of software metadata in a format which is both machine-readable and human-readable.
+
+SPDX is a flexible language for expressing a wide variety of metadata that handles many use cases. Among these use cases is support for expressing the NTIA Minimum Elements.
+
+While version 2.3 of the SPDX specification (released in November 2022) was the first to explicitly describe https://spdx.github.io/spdx-spec/v2.3/how-to-use/#k2-satisfying-ntia-minimum-elements-for-an-sbom-using-spdx[how to express the NTIA Minimum Elements in an SPDX Document], SPDX's support for the NTIA Minimum Elements actually dates back to its version 2.0 release in 2015.
+
+This HOWTO describes how SPDX 2.x supports the NTIA Minimum Elements for an SBOM, and demonstrates several different example methods for how to create an SPDX SBOM that complies with the NTIA requirements.
+
+=== 1.2. Overview of this HOWTO
+
+This HOWO covers the following topics:
+
+* Key terms and concepts applicable to SPDX SBOMs expressing the NTIA Minimum Elements
+* Understanding the contents of an SPDX NTIA Minimum Elements SBOM
+* Multiple examples of creating an SPDX NTIA Minimum Elements SBOM, including:
+** manual creation of a text file
+** manual creation using the https://sbom.democert.org/sbom/[SwiftBOM] tool
+** automated creation using tooling
+
+These topics are followed by a few Frequently Asked Questions and some additional resources for further reading.
+

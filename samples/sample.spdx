@@ -1,0 +1,25 @@
+SPDXVersion: SPDX-2.3
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: Frobozz Editor SBOM
+DocumentNamespace: https://swinslow.net/spdx-ntia-sbom-howto/sample1-v1
+Creator: Person: Steve Winslow (steve@swinslow.net)
+Created: 2023-03-26T18:00:00Z
+
+PackageName: Frobozz Text Editor
+SPDXID: SPDXRef-Package-Frobozz
+PackageVersion: v1.2.3
+PackageSupplier: Organization: Frobozz Magic Software Company
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageChecksum: SHA256: eec9e126fb075d505869f443587cf48173f3da1d817ae47cb8c1a676e47d8377
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-Frobozz
+
+PackageName: Spellchecker of Yendor
+SPDXID: SPDXRef-Package-Yendor
+PackageVersion: v3.5-beta2
+PackageSupplier: Person: Wizard of Yendor
+FilesAnalyzed: false
+PackageDownloadLocation: NOASSERTION
+PackageChecksum: SHA256: 0fa8a1044f6ad57d84073eda3701bfa2805046e7862fe85c41ea28166d1676f6
+Relationship: SPDXRef-Package-Frobozz CONTAINS SPDXRef-Package-Yendor
