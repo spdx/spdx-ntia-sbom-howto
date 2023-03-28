@@ -11,7 +11,7 @@ It contains a single third-party component, a spellchecker that is packaged into
 
 Here's the SPDX Document, in tag-value format:
 
-.sample.spdx
+.samples/sample.spdx
 ----
 SPDXVersion: SPDX-2.3
 DataLicense: CC0-1.0
@@ -27,7 +27,6 @@ PackageVersion: v1.2.3
 PackageSupplier: Organization: Frobozz Magic Software Company
 PackageDownloadLocation: NOASSERTION
 FilesAnalyzed: false
-PackageChecksum: SHA256: eec9e126fb075d505869f443587cf48173f3da1d817ae47cb8c1a676e47d8377
 Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-Frobozz
 
 PackageName: Spellchecker of Yendor
@@ -36,17 +35,16 @@ PackageVersion: v3.5-beta2
 PackageSupplier: Person: Wizard of Yendor
 FilesAnalyzed: false
 PackageDownloadLocation: NOASSERTION
-PackageChecksum: SHA256: 0fa8a1044f6ad57d84073eda3701bfa2805046e7862fe85c41ea28166d1676f6
 Relationship: SPDXRef-Package-Frobozz CONTAINS SPDXRef-Package-Yendor
 ----
 
-This SPDX Document begins with the mandatory Document Creation Information section, and is followed by two Package Information sections--one for the text editor, and one for its packaged spellchecker component.
+This SPDX Document begins with the mandatory Document Creation information section, and is followed by two Package information sections--one for the text editor, and one for its packaged spellchecker component.
 
 Let's walk through it line by line.
 
 === 3.2. Document Creation Information Section
 
-Lines 1-7 form the Document Creation Information section, which is essentially a "file header" defining data about the SPDX Document itself.
+Lines 1-7 form the Document Creation information section, which is essentially a "file header" defining data about the SPDX Document itself.
 
 ----
 SPDXVersion: SPDX-2.3
@@ -72,16 +70,91 @@ Creator: Person: Steve Winslow (steve@swinslow.net)
 Created: 2023-03-26T18:00:00Z
 ----
 
-The next three lines cover the remainder of the required elements for the Document Creation Information section. These are also part of the NTIA Minimum Elements:
+The next three lines cover the remainder of the required elements for the Document Creation information section.
+These are also part of the NTIA Minimum Elements:
 
-* ``DocumentNamespace``: see subsection **TBD** for more information; this is part of the _Other Unique Identifiers_ NTIA element
-* ``Creator``: This can be either a ``Person``, ``Organization`` or ``Tool``, with optional email address in parentheses; this is the _Author of SBOM Data_ NTIA element
-* ``Created``: This is the date of the creation of the SBOM, expressed in UTC time per the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601 format]; this is the _Timestamp_ NTIA element
+* ``DocumentNamespace``: see Part 2.**TBD** for more information; this is part of the _Other Unique Identifiers_ NTIA element
+* ``Creator``: one or more of ``Person``, ``Organization`` or ``Tool`` that created this SPDX Document, with optional email address in parentheses for a Person or Organization; this is the _Author of SBOM Data_ NTIA element
+* ``Created``: the date-time of the creation of the SBOM, expressed in UTC per the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601 format]; this is the _Timestamp_ NTIA element
 
-These seven lines comprise the entirety of the required fields for the Document Creation Information section for an SPDX 2.x Document, and also cover 2 1/2 of the NTIA Minimum Elements.
+These seven lines comprise the entirety of the required fields for the Document Creation information section for an SPDX 2.x Document, and also cover 2 1/2 of the NTIA Minimum Elements.
 
-=== 3.3. Package Information Section - primary package
+=== 3.3. Package Information Section and Relationship - primary package
 
+The next block (lines 9-15) forms the Package information section for the primary Package being described by the SPDX Document: the Frobozz Text Editor.
+It also includes a ``DESCRIBES`` Relationship, stating that this SPDX Document is principally describing the text editor Package.
 
+----
+PackageName: Frobozz Text Editor
+----
 
+For SPDX Documents in tag-value format, a new Package information section always begins with the ``PackageName`` tag.
+This line indicates:
+
+* ``PackageName``: the full human-readable name for the Package, as given by the Package's originator; this is the _Component Name_ NTIA element
+
+----
+SPDXID: SPDXRef-Package-Frobozz
+----
+
+The next line indicates:
+
+* ``SPDXID``: together with ``DocumentNamespace``, this forms a unique addressable identifier for this Package, as described in 2.**TBD**; this is the other part of the _Other Unique Identifiers_ NTIA element
+
+The ``SPDXID`` will always begin with ``SPDXRef-``, followed by a unique string containing letters, numbers, ``.`` and/or ``-``.
+The ``SPDXID`` value must be unique within this SPDX Document.
+
+----
+PackageVersion: v1.2.3
+PackageSupplier: Organization: Frobozz Magic Software Company
+----
+
+These two lines indicate:
+
+* ``PackageVersion``: The version of the Package, as specified by its supplier; this is the _Version of the Component_ NTIA element
+* ``PackageSupplier``: The identity of the direct supplier of the Package, as a ``Person`` or ``Organization`` similar to the SPDX Document ``Creator`` element described above; this is the _Supplier Name_ NTIA element
+
+----
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-Frobozz
+----
+
+The next three lines are not part of the NTIA Minimum Elements, but are instead required by the SPDX 2.3 specification.
+These two lines indicate:
+
+* ``PackageDownloadLocation``: the URL or version control system location from which the Package can be downloaded, if any
+* ``FilesAnalyzed``: a boolean specifying whether or not the SPDX Document includes File information sections for the Files comprising this Package
+* ``Relationship``: with the ``DESCRIBES`` relationship type, indicates that the SPDX Document is primarily describing the text editor Package
+
+A minimal SBOM meeting the NTIA Minimal Elements requirements does not need to include File information sections, so we'll leave ``FilesAnalyzed`` as ``false``.
+
+If we know the ``PackageDownloadLocation`` for this version of the Package, we can specify the URL, but there's no need to do so.
+We can leave it as ``NOASSERTION`` to indicate that we (as the SPDX Document creator) are not making any attempt to specify it; or if we knew that there is no download location whatsoever, we could also specify ``NONE``.
+
+Line 15 is technically part of a Relationship information section, but it can in fact appear anywhere in the SPDX Document after the initial Document Creation information section.
+Each SPDX Document that contains more than one Package must include at least one ``DESCRIBES`` Relationship, in order to specify which Package is the primary one being described by this SPDX Document.
+
+=== 3.4. Package Information Section and Relationship - contained dependency
+
+The elements listed in subsections 3.2 and 3.3 above are actually all that is required by the NTIA Minimum Elements and the SPDX specification format, for a primary Package that contains no dependencies.
+
+For this example, we're assuming that the text editor includes exactly one dependency, a separate spellchecker component obtained from a third party.
+The final block (lines 17-23) describes this dependency.
+
+Most of the fields have an identical meaning and structure as those used in the Package information section for the primary Package.
+Only the final line has a different structure:
+
+----
+Relationship: SPDXRef-Package-Frobozz CONTAINS SPDXRef-Package-Yendor
+----
+
+While this is also a Relationship information line as for the prior Package, this one instead has a ``CONTAINS`` relationship type, indicating:
+
+* ``Relationship``: with the ``CONTAINS`` relationship type, indicates that the Package with the ID specified on the left side contains the Package with the ID specified on the right side; this is the _Dependency Relationship_ NTIA element
+
+Assuming that this spellchecker Package is the only dependency contained in the text editor Package, we are all done.
+This SPDX Document contains all of the NTIA Minimum Elements for an SBOM.
+
+=== 3.5. Summary of required fields [TO BE COMPLETED]
 

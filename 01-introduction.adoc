@@ -36,5 +36,5 @@ This HOWO covers the following topics:
 ** manual creation using the https://sbom.democert.org/sbom/[SwiftBOM] tool
 ** automated creation using tooling
 
-These topics are followed by a few Frequently Asked Questions and some additional resources for further reading.
+These topics are followed by links to a few additional resources for further reading.
 

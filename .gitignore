@@ -1,3 +1,4 @@
 index.html
 *.swp
-
+scratch/
+.DS_Store

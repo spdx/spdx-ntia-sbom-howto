@@ -1,0 +1,29 @@
+# Document Creation information section
+
+SPDXVersion: SPDX-2.3
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: [Name of SPDX Document]
+DocumentNamespace: [URI for unique namespace for this SPDX Document]
+Creator: [SBOM creator, in one of the following forms][Option 1: Person: Full Name][Option 2: Organization: Company Name]
+Created: [SBOM creation date and time in UTC ISO 8601 format, e.g. YYYY-MM-DDThh-mm-ssZ]
+
+# Package information section - primary Package
+
+PackageName: [Name of primary Package]
+SPDXID: [Unique ID for primary Package, beginning with SPDXRef- followed by letters, numbers, . and -]
+PackageVersion: [Version of primary Package]
+PackageSupplier: [Supplier of primary Package, in one of the following forms][Option 1: Person: Full Name][Option 2: Organization: Company Name]
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+Relationship: SPDXRef-DOCUMENT DESCRIBES [ID for primary Package specified above]
+
+# Package information section - one for each dependency contained in primary Package
+
+PackageName: [Name of dependency]
+SPDXID: [Unique ID for dependency, following the ID rules described above]
+PackageVersion: [Version of dependency]
+PackageSupplier: [Supplier of dependency, in one of the following forms][Option 1: Person: Full Name][Option 2: Organization: Company Name]
+FilesAnalyzed: false
+PackageDownloadLocation: NOASSERTION
+Relationship: [ID for primary Package] CONTAINS [ID for dependency]
