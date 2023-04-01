@@ -156,5 +156,76 @@ While this is also a Relationship information line as for the prior Package, thi
 Assuming that this spellchecker Package is the only dependency contained in the text editor Package, we are all done.
 This SPDX Document contains all of the NTIA Minimum Elements for an SBOM.
 
-=== 3.5. Summary of required fields [TO BE COMPLETED]
+=== 3.5. Summary of required fields
 
+The following table summarizes the SPDX fields that correspond to the NTIA Minimum Elements fields.
+
+.NTIA Minimum Elements and SPDX 2.3 fields
+[cols="1,1,1"]
+|===
+|NTIA element name |SPDX 2.3 field name |SPDX 2.3 specification reference
+
+|Supplier Name
+|``PackageSupplier``
+|https://spdx.github.io/spdx-spec/v2.3/package-information/#75-package-supplier-field[Section 7.5]
+
+|Component Name
+|``PackageName``
+|https://spdx.github.io/spdx-spec/v2.3/package-information/#71-package-name-field[Section 7.1]
+
+|Version of the Component
+|``PackageVersion``
+|https://spdx.github.io/spdx-spec/v2.3/package-information/#73-package-version-field[Section 7.3]
+
+|Other Unique Identifiers
+|``DocumentNamespace``, ``SPDXID``
+|https://spdx.github.io/spdx-spec/v2.3/document-creation-information/#65-spdx-document-namespace-field[Section 6.5], https://spdx.github.io/spdx-spec/v2.3/package-information/#72-package-spdx-identifier-field[Section 7.2]
+
+|Dependency Relationship
+|``Relationship`` (``CONTAINS``)
+|https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/#111-relationship-field[Section 11.1]
+
+|Author of SBOM Data
+|``Creator``
+|https://spdx.github.io/spdx-spec/v2.3/document-creation-information/#68-creator-field[Section 6.8]
+
+|Timestamp
+|``Created``
+|https://spdx.github.io/spdx-spec/v2.3/document-creation-information/#69-created-field[Section 6.9]
+|===
+
+Additionally, the following table summarizes the other SPDX fields that are required as mandatory fields per the SPDX spec, which do not correspond to the NTIA Minimum Elements.
+
+.Other mandatory SPDX 2.3 fields
+[cols="1,1,1"]
+|===
+|SPDX 2.3 field name |Value |SPDX 2.3 specification reference
+
+|``SPDXVersion``
+|``SPDX-2.3``
+|https://spdx.github.io/spdx-spec/v2.3/document-creation-information/#61-spdx-version-field[Section 6.1]
+
+|``DataLicense``
+|``CC0-1.0``
+|https://spdx.github.io/spdx-spec/v2.3/document-creation-information/#62-data-license-field[Section 6.2]
+
+|``SPDXID`` (for Document)
+|``SPDXRef-DOCUMENT``
+|https://spdx.github.io/spdx-spec/v2.3/document-creation-information/#63-spdx-identifier-field[Section 6.3]
+
+|``DocumentName``
+|user-defined name of SPDX Document
+|https://spdx.github.io/spdx-spec/v2.3/document-creation-information/#64-document-name-field[Section 6.4]
+
+|``PackageDownloadLocation``
+|``NOASSERTION`` or URL / VCS location
+|https://spdx.github.io/spdx-spec/v2.3/package-information/#77-package-download-location-field[Section 7.7]
+
+|``FilesAnalyzed``
+|``false`` (unless including all File information sections)
+|https://spdx.github.io/spdx-spec/v2.3/package-information/#78-files-analyzed-field[Section 7.8]
+
+|``Relationship`` (``DESCRIBES``, for primary Package)
+|``SPDXRef-DOCUMENT`` on left side, ID of primary Package on right side
+|https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/#111-relationship-field[Section 11.1]
+|===

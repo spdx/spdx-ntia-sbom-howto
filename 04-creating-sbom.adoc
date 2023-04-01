@@ -14,6 +14,7 @@ Below is a template that you can copy and use to create your own SPDX 2.3 SBOM f
 ==== 4.1.1. SPDX 2.3 template for NTIA Minimum Elements SBOM
 
 Here are a few rules for using this template:
+
 * SPDX tag-value files typically end with the ``.spdx`` file extension.
 * Lines beginning with ``#`` are comments, and are included in the template just as guidance; these can be omitted.
 * Bracketed portions of text explain the values that should be used for those lines; refer back to Part 3 of this HOWTO for more details about the meanings of each line.

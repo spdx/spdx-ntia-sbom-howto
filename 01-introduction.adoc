@@ -21,13 +21,13 @@ The SPDX specification defines the structure and format of an SPDX Document, inc
 
 SPDX is a flexible language for expressing a wide variety of metadata that handles many use cases. Among these use cases is support for expressing the NTIA Minimum Elements.
 
-While version 2.3 of the SPDX specification (released in November 2022) was the first to explicitly describe https://spdx.github.io/spdx-spec/v2.3/how-to-use/#k2-satisfying-ntia-minimum-elements-for-an-sbom-using-spdx[how to express the NTIA Minimum Elements in an SPDX Document], SPDX's support for the NTIA Minimum Elements actually dates back to its version 2.0 release in 2015.
+While https://spdx.github.io/spdx-spec/v2.3/[version 2.3] (released in November 2022) was the first version of the SPDX specification to explicitly describe https://spdx.github.io/spdx-spec/v2.3/how-to-use/#k2-satisfying-ntia-minimum-elements-for-an-sbom-using-spdx[how to express the NTIA Minimum Elements in an SPDX Document], SPDX's support for the NTIA Minimum Elements actually dates back to its version 2.0 release in 2015.
 
 This HOWTO describes how SPDX 2.x supports the NTIA Minimum Elements for an SBOM, and demonstrates several different example methods for how to create an SPDX SBOM that complies with the NTIA requirements.
 
 === 1.2. Overview of this HOWTO
 
-This HOWO covers the following topics:
+This HOWTO covers the following topics:
 
 * Key terms and concepts applicable to SPDX SBOMs expressing the NTIA Minimum Elements
 * Understanding the contents of an SPDX NTIA Minimum Elements SBOM
