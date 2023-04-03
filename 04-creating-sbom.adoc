@@ -109,18 +109,31 @@ Note that the generated SBOM may not be "optimized" for human readability.
 For example, it generates SPDX IDs for the Package information sections using hashes, which are fine for automated parsing but may make it more challenging for a human reader to fully understand the SBOM.
 This tradeoff between tooling-assisted creation of SBOMs (easier but less readable) and manual human creation of SBOMs (more readable but more tedious and error-prone) is something that SBOM creators will need to consider when designing their processes.
 
-=== 4.3. Automated creation using tooling [TO BE COMPLETED]
+=== 4.3. Automated creation using tooling
 
-*To get input from SPDX tech team regarding an automated tooling example*
+Most or all aspects of creating an NTIA Minimum Elements SBOM in SPDX format can be automated using tooling.
 
-=== 4.4. Additional details and Optional recommended fields [TO BE COMPLETED]
+At a high level, the process would involve the following steps:
 
-*To add details about the following, based on NTIA guidance:*
+1. Determine the following info for the primary software package:
+  * its name
+  * its supplier
+  * its version number
+  * its direct dependencies
+2. Repeat the process in 1 for each dependency (ideally continuing down the tree for each subdependency)
+3. Assign SPDX identifiers for each package
+4. Output the Document Creation information section
+5. Output the Package information section and ``DESCRIBES`` Relationship for the primary software package
+6. Output the Package information section and ``CONTAINS`` Relationship for each dependency
 
-* hash and PackageChecksum
-* other dependency and relationship types
-* frequency
-* distribution and delivery
-* access control
-* license info
+The specifics of how to obtain the information for steps 1 and 2 will vary, depending on the nature of your software programming ecosystem.
+
+Step 3 can be handled via use of a UUID generator, prefixed by ``SPDXRef-`` in each case.
+Or a slightly more complicated algorithm can be used to convert package names and version numbers into SPDX identifiers that are more readily human-readable, if desired.
+
+After the above data is gathered, steps 4, 5 and 6 can be performed using text templating tools, or even simple ``print`` statements or their equivalent.
+The official SPDX tools (https://github.com/spdx/tools[Java], https://github.com/spdx/tools-golang[Golang], and https://github.com/spdx/tools-python[Python]) can also be used to programmatically output SPDX Documents in the correct format.
+
+A variety of other open source, proprietary and commercial tools and services have implemented different aspects of SPDX Document creation.
+Many of these may be able to handle some or all of the aspects needed for automatic generation of NTIA Minimum Elements SBOMs in SPDX 2.3 format.
 

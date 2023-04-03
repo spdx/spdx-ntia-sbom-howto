@@ -67,10 +67,10 @@ So for purposes of this HOWTO, just be aware that the SPDX Document will have a 
 The Local Identifier must begin with the prefix ``SPDXRef-``, followed by a unique set of letters, numbers, ``.`` and ``-``.
 
 Each SPDX element in a Document must have its own unique Local Identifier.
-In this HOWTO, this focuses on each Package Information section defining a corresponding unique SPDX identifier to reference that package.
+In this HOWTO, this focuses on each Package information section defining a corresponding unique SPDX identifier to reference that package.
 Although several of the examples used in this HOWTO for Packages begin with ``SPDXRef-Package-``, this is solely for illustrative and readability purposes; the ``Package-`` portion of the identifier is not required.
 
-The SPDX Document itself always has the Local Identifier ``SPDXRef-DOCUMENT``, defined explicitly in the Document Creation Information section at the beginning of the tag-value file.
+The SPDX Document itself always has the Local Identifier ``SPDXRef-DOCUMENT``, defined explicitly in the Document Creation information section at the beginning of the tag-value file.
 
 Finally, note that SPDX identifiers are a separate and different concept from SPDX license identifiers--the unique identifiers used to refer to licenses and exceptions that are on https://spdx.org/licenses[the SPDX License List].
 You may have encountered SPDX license IDs in package metadata or source code.
