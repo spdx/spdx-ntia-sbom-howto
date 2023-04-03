@@ -1,6 +1,113 @@
 // SPDX-License-Identifier: CC-BY-4.0
 
-== 2. Key Terms and Concepts [TO BE COMPLETED]
+== 2. Key Terms and Concepts
 
-Key terms text goes here
+The following is not a full overview of the SPDX data model and format, nor of SBOM concepts generally.
+But understanding a few concepts regarding SPDX's terminology is helpful in being able to create an effective SBOM.
+
+As mentioned in the introduction, the following terminology refers to the 2.x versions of the SPDX specification, with a specific focus on the latest release, version 2.3.
+
+=== 2.1. SPDX Documents
+
+An *SPDX Document* is a document that contains SPDX metadata about software.
+While an SPDX Document can convey a variety of different types of information, if it includes the minimum necessary elements to describe software, then it is an SBOM.
+
+An SPDX Document is represented on disk as a single file in one of the following supported formats: JSON, YAML, RDF/XML, tag-value, and spreadsheet.
+Documents can be interchanged between formats using the official SPDX tools (https://github.com/spdx/tools[Java], https://github.com/spdx/tools-golang[Golang], and https://github.com/spdx/tools-python[Python], with the Java tools currently having the greatest degree of conformance and support).
+
+In this HOWTO, we will focus on SPDX's tag-value format.
+It is a simple text file format which is both machine-parseable and human-readable, and can easily be created by hand, using text templating software, or SPDX-specific tools.
+
+In a tag-value SPDX Document, each line of data consists of (1) a tag defining the data field; (2) a colon separator; and (3) the corresponding data value.
+For instance, the following line defines the name of an SPDX Document:
+
+----
+DocumentName: My Awesome SBOM
+----
+
+For some text fields, multi-line text can be enclosed in ``<text>...</text>`` tags.
+Lines consisting of whitespace, and comment lines beginning with ``#``, are ignored.
+
+=== 2.2. SPDX Elements
+
+The SPDX data model represents software as a collection of linked **elements**.
+Each SPDX element has a unique identifier (described in Part 2.3 below).
+
+In SPDX, there are three primary types of elements that can be used to represent software:
+
+* *Package*: represents any unit of content associated with a distribution of software; typically composed of one or more Files
+* *File*: represents a file on disk, as typically understood by most operating systems
+* *Snippet*: represents a portion of a File
+
+However, although it is _possible_ to represent software down to the File or Snippet level, it is not _required_ to do so.
+SPDX is _unopinionated_: it defines a vocabulary of nouns, along with adjectives to describe them.
+The SPDX Document creator is free to use those nouns and adjectives to describe a distribution of software to a greater or lesser degree of specificity.
+
+The NTIA Minimum Elements for an SBOM only require describing software at the "component" level.
+In SPDX terms, this corresponds to a Package.
+So for the SPDX Documents we'll be looking at in the rest of this HOWTO, we will only be talking about Packages, and we can disregard the File and Snippet element types.
+
+Finally, note that the SPDX Document itself is also an SPDX element, and therefore has its own identifier as well.
+The purpose for this will become clear as we proceed.
+
+=== 2.3. SPDX Identifiers
+
+As mentioned above, each SPDX element has its own **SPDX identifier**.
+An element's SPDX identifier is its _unique_ address: a mechanism by which other SPDX fields can reference it, such as in Relationships (described in Part 2.4 below).
+
+An element's SPDX identifier is actually made up of two components:
+
+* the **Document Namespace** of the SPDX Document in which the element is _defined_; and
+* the **Local Identifier** for the element, which is unique within that namespace.
+
+The Document Namespace is defined once for each SPDX Document, in the Document Creation Info section (at the beginning of a tag-value Document).
+Although a Document Namespace enables powerful abilities to link between SPDX Documents and reference elements defined in another Document, doing so is not necessary for creating an NTIA Minimum Elements SBOM.
+So for purposes of this HOWTO, just be aware that the SPDX Document will have a unique Document Namespace URI defined in the intro section, but otherwise we can ignore this.
+
+The Local Identifier must begin with the prefix ``SPDXRef-``, followed by a unique set of letters, numbers, ``.`` and ``-``.
+
+Each SPDX element in a Document must have its own unique Local Identifier.
+In this HOWTO, this focuses on each Package Information section defining a corresponding unique SPDX identifier to reference that package.
+Although several of the examples used in this HOWTO for Packages begin with ``SPDXRef-Package-``, this is solely for illustrative and readability purposes; the ``Package-`` portion of the identifier is not required.
+
+The SPDX Document itself always has the Local Identifier ``SPDXRef-DOCUMENT``, defined explicitly in the Document Creation Information section at the beginning of the tag-value file.
+
+Finally, note that SPDX identifiers are a separate and different concept from SPDX license identifiers--the unique identifiers used to refer to licenses and exceptions that are on https://spdx.org/licenses[the SPDX License List].
+You may have encountered SPDX license IDs in package metadata or source code.
+While those license identifiers work in a similar manner to SPDX element identifiers, we won't be discussing them further here.
+
+=== 2.4. Relationships
+
+Finally, the existence of SPDX elements with unique identifiers enables us to specify **Relationships** between elements.
+
+The SPDX specification defines a broad vocabulary of https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/#111-relationship-field[Relationship types].
+For instance, it is possible to use Relationships to express that one file is derived from another; or that a source code file is compiled to create an object code file; or that two files are dynamically or statically linked together.
+
+However, for an NTIA Minimum Elements SBOM (and therefore for purposes of this HOWTO), there are only two Relationship types that we need to know about.
+
+==== 2.4.1. ``DESCRIBES`` Relationship
+
+The first key Relationship type, ``DESCRIBES``, tells us which Package(s) are the ones that the Document is primarily describing.
+In talking about a piece of software, there is the software itself, and then the tree of dependencies that it contains.
+The Package at the top of the tree is the one that would be specified in the ``DESCRIBES`` Relationship.
+
+If that top-level Package has the SPDX identifier ``SPDXRef-MySoftware``, for example, then the following line in a Document would specify that it is the top-level, primary Package:
+
+----
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-MySoftware
+----
+
+==== 2.4.2. ``CONTAINS`` Relationship
+
+The other Relationship type we care about here, ``CONTAINS``, tells us that one Package contains the other Package as a dependency.
+
+The primary Package would have a ``CONTAINS`` Relationship with each dependency Package that it directly contains.
+If a dependency Package itself contains other subdependencies, then those Packages would similarly have a ``CONTAINS`` Relationship.
+
+For example, this may look like the following:
+
+----
+Relationship: SPDXRef-MySoftware CONTAINS SPDXRef-AcmeRuntime
+Relationship: SPDXRef-AcmeRuntime CONTAINS SPDXRef-AcmeMemoryManager
+----
 

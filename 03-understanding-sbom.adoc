@@ -73,7 +73,7 @@ Created: 2023-03-26T18:00:00Z
 The next three lines cover the remainder of the required elements for the Document Creation information section.
 These are also part of the NTIA Minimum Elements:
 
-* ``DocumentNamespace``: see Part 2.**TBD** for more information; this is part of the _Other Unique Identifiers_ NTIA element
+* ``DocumentNamespace``: a unique URI for this SPDX Document, although the Document does _not_ need to be accessible from this URI (see Part 2.3 for more information); this is part of the _Other Unique Identifiers_ NTIA element
 * ``Creator``: one or more of ``Person``, ``Organization`` or ``Tool`` that created this SPDX Document, with optional email address in parentheses for a Person or Organization; this is the _Author of SBOM Data_ NTIA element
 * ``Created``: the date-time of the creation of the SBOM, expressed in UTC per the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601 format]; this is the _Timestamp_ NTIA element
 
@@ -99,7 +99,7 @@ SPDXID: SPDXRef-Package-Frobozz
 
 The next line indicates:
 
-* ``SPDXID``: together with ``DocumentNamespace``, this forms a unique addressable identifier for this Package, as described in 2.**TBD**; this is the other part of the _Other Unique Identifiers_ NTIA element
+* ``SPDXID``: together with ``DocumentNamespace``, this forms a unique addressable identifier for this Package, as described in 2.3; this is the other part of the _Other Unique Identifiers_ NTIA element
 
 The ``SPDXID`` will always begin with ``SPDXRef-``, followed by a unique string containing letters, numbers, ``.`` and/or ``-``.
 The ``SPDXID`` value must be unique within this SPDX Document.
