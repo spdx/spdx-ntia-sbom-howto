@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: CC-BY-4.0
 
-= SPDX 2.x and NTIA Minimum Elements for SBOM HOWTO
+= SPDX and NTIA Minimum Elements for SBOM HOWTO
 Steve Winslow <steve@swinslow.net>
 v0.1
 :toc:
