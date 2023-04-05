@@ -18,5 +18,14 @@ jobs:
         run: sudo apt update; sudo apt-get install asciidoctor
 
       - name: Run asciidoctor
-        run: make
+        run: asciidoctor index.adoc
+
+      - name: Copy build artifacts
+        run: mkdir public; cp index.html public
+
+      - name: Deploy build artifacts
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
         
