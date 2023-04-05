@@ -45,4 +45,6 @@ Issues and pull requests may be submitted to that repository.
 
 This HOWTO is Copyright 2023 Steve Winslow, and is licensed under a Creative Commons Attribution 4.0 International License (CC-BY-4.0), available at https://creativecommons.org/licenses/by/4.0/legalcode.
 
+All SPDX metadata examples in this HOWTO, including the template and sample SPDX documents, are made available under CC0 1.0 Universal (CC0-1.0), available at https://creativecommons.org/publicdomain/zero/1.0/legalcode.
+
 SPDX and Software Package Data Exchange are registered trademarks of The Linux Foundation.

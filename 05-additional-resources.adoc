@@ -1,6 +1,34 @@
 // SPDX-License-Identifier: CC-BY-4.0
 
-== 5. Additional resources [TO BE COMPLETED]
+== 5. Additional resources
 
-resource text goes here
+*NTIA resources on SBOMs*
+
+* Minimum Elements for an SBOM: https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf
+* Software Bill of Materials NTIA information: https://www.ntia.gov/page/software-bill-materials
+* NTIA Multistakeholder Process on Software Component Transparency report (Oct. 2021): https://www.ntia.gov/files/ntia/publications/ntia_sbom_framing_2nd_edition_20211021.pdf
+
+*SPDX resources*
+
+* SPDX website: https://spdx.dev
+* SPDX specification, version 2.3): https://spdx.github.io/spdx-spec/v2.3/
+** Document Creation information (Clause 6): https://spdx.github.io/spdx-spec/v2.3/document-creation-information/
+** Packages (Clause 7): https://spdx.github.io/spdx-spec/v2.3/package-information/
+** Relationships (Clause 11): https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/
+
+*SPDX SBOM samples*
+
+* Template for manual creation: https://github.com/swinslow/spdx-ntia-sbom-howto/blob/main/samples/template.spdx
+* Example NTIA minimum elements SBOM in SPDX 2.3 format: https://github.com/swinslow/spdx-ntia-sbom-howto/blob/main/samples/sample.spdx
+
+*SPDX tools*
+
+* Official tools from the SPDX project:
+** Java: https://github.com/spdx/tools
+** Golang: https://github.com/spdx/tools-golang
+** Python: https://github.com/spdx/tools-python
+** Online SPDX validation: https://tools.spdx.org/app/validate/
+** Online NTIA conformance checker: https://tools.spdx.org/app/ntia_checker/
+** command-line NTIA conformance checker: https://github.com/spdx/ntia-conformance-checker
+* SwiftBOM tool from CERT Coordination Center: https://democert.org/sbom/
 

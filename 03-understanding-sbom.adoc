@@ -229,3 +229,9 @@ Additionally, the following table summarizes the other SPDX fields that are requ
 |``SPDXRef-DOCUMENT`` on left side, ID of primary Package on right side
 |https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/#111-relationship-field[Section 11.1]
 |===
+
+https://spdx.github.io/spdx-spec/v2.3/how-to-use/#k2-satisfying-ntia-minimum-elements-for-an-sbom-using-spdx[Annex K.2] of the SPDX specification includes a related table describing the NTIA elements.
+Please note that it uses field names that differ slightly from the official NTIA Minimum Elements, and also includes one field (Component Hash) that is _not_ one of the NTIA Minimum Elements.
+The field names listed in Annex K.2 originate from https://www.ntia.gov/files/ntia/publications/ntia_sbom_framing_2nd_edition_20211021.pdf[a separate report] issued by the NTIA Multistakeholder Process on Software Component Transparency.
+Although NTIA encourages SBOMs to include Component Hashes, it is not one of the mandatory NTIA Minimum Elements.
+

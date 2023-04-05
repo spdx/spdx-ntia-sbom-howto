@@ -134,6 +134,12 @@ Or a slightly more complicated algorithm can be used to convert package names an
 After the above data is gathered, steps 4, 5 and 6 can be performed using text templating tools, or even simple ``print`` statements or their equivalent.
 The official SPDX tools (https://github.com/spdx/tools[Java], https://github.com/spdx/tools-golang[Golang], and https://github.com/spdx/tools-python[Python]) can also be used to programmatically output SPDX Documents in the correct format.
 
+Additionally, the SPDX project makes available the https://tools.spdx.org/app/[SPDX Online Tools], a collection of tools hosted by SPDX which can assist in validating whether your SPDX Document is correct and valid.
+It includes (1) a https://tools.spdx.org/app/validate/[Validator] that checks to ensure that a Document meets the SPDX 2.3 specification's requirements; and (2) an https://tools.spdx.org/app/ntia_checker/[NTIA Conformance Checker] that confirms whether a Document meets the NTIA Minimum Element requirements.
+If you will be making substantial use of the SPDX Online Tools, and particularly if you may use them to validate or check SBOMs containing sensitive data, you will likely want to install a local copy of the Online Tools yourself from the https://github.com/spdx/spdx-online-tools[source code repo].
+
+SPDX also makes available https://github.com/spdx/ntia-conformance-checker[a command-line NTIA conformance checker tool].
+
 A variety of other open source, proprietary and commercial tools and services have implemented different aspects of SPDX Document creation.
 Many of these may be able to handle some or all of the aspects needed for automatic generation of NTIA Minimum Elements SBOMs in SPDX 2.3 format.
 
