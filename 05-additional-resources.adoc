@@ -1,6 +1,0 @@
-// SPDX-License-Identifier: CC-BY-4.0
-
-== 5. Additional resources [TO BE COMPLETED]
-
-resource text goes here
-
