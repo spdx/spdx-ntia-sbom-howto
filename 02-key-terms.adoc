@@ -13,7 +13,8 @@ An *SPDX Document* is a document that contains SPDX metadata about software.
 While an SPDX Document can convey a variety of different types of information, if it includes the minimum necessary elements to describe software, then it is an SBOM.
 
 An SPDX Document is represented on disk as a single file in one of the following supported formats: JSON, YAML, RDF/XML, tag-value, and spreadsheet.
-Documents can be interchanged between formats using the official SPDX tools (https://github.com/spdx/tools[Java], https://github.com/spdx/tools-golang[Golang], and https://github.com/spdx/tools-python[Python], with the Java tools currently having the greatest degree of conformance and support).
+Documents can be interchanged between formats using the official SPDX tools (https://github.com/spdx/tools[Java], https://github.com/spdx/tools-golang[Golang], and https://github.com/spdx/tools-python[Python], with the Java and Python tools currently having the greatest degree of conformance and support).  
+The https://tools.spdx.org/app/convert/[SPDX Online Tools Convert utility] can also be used.
 
 In this HOWTO, we will focus on SPDX's tag-value format.
 It is a simple text file format which is both machine-parseable and human-readable, and can easily be created by hand, using text templating software, or SPDX-specific tools.
