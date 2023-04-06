@@ -18,8 +18,8 @@
 
 *SPDX SBOM samples*
 
-* Template for manual creation: https://github.com/swinslow/spdx-ntia-sbom-howto/blob/main/samples/template.spdx
-* Example NTIA minimum elements SBOM in SPDX 2.3 format: https://github.com/swinslow/spdx-ntia-sbom-howto/blob/main/samples/sample.spdx
+* Template for manual creation: https://github.com/spdx/spdx-ntia-sbom-howto/blob/main/samples/template.spdx
+* Example NTIA minimum elements SBOM in SPDX 2.3 format: https://github.com/spdx/spdx-ntia-sbom-howto/blob/main/samples/sample.spdx
 
 *SPDX tools*
 
