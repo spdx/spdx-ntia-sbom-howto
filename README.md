@@ -1,6 +1,6 @@
 # SPDX and NTIA Minimum Elements for SBOM HOWTO
 
-This repository contains the [Asciidoc](https://asciidoc.org) source files for the HOWTO on creating an SPDX 2.3 Document that satisfies the NTIA Minimum Elements for SBOMs, available at: https://swinslow.github.io/spdx-ntia-sbom-howto/
+This repository contains the [Asciidoc](https://asciidoc.org) source files for the HOWTO on creating an SPDX 2.3 Document that satisfies the NTIA Minimum Elements for SBOMs, available at: https://spdx.github.io/spdx-ntia-sbom-howto/
 
 The [samples/ folder](./samples/) contains a template for manually creating an NTIA Minimum Elements SBOM in SPDX 2.3, as well as a sample completed SBOM.
 
